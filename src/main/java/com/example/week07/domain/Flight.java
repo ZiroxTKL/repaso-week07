@@ -7,6 +7,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "flights", indexes = {
         @Index(name = "idx_flight_flight_number", columnList = "flightNumber", unique = true)
+
 })
 public class Flight {
     @Id
