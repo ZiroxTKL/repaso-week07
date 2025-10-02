@@ -19,16 +19,16 @@ public class BookingCreatedListener {
     @EventListener
     public void onBookingCreated(BookingCreatedEvent event) {
         Booking b = event.getBooking();
-        String body = "Hello " + b.getCustomerFirstName() + " " + b.getCustomerLastName() + ",\n\n" +
-                "Your booking was successful! \n\n" +
-                "The booking is for flight " + b.getFlightNumber() + " with departure date of " + b.getFlight().getEstDepartureTime().atZoneSameInstant(ZoneOffset.UTC).format(ISO_Z) +
-                " and arrival date of " + b.getFlight().getEstArrivalTime().atZoneSameInstant(ZoneOffset.UTC).format(ISO_Z) + ".\n\n" +
-                "The booking was registered at " + b.getBookingDate().atZoneSameInstant(ZoneOffset.UTC).format(ISO_Z) + ".\n\n" +
-                "Bon Voyage!\nFly Away Travel\n";
-        Path out = Path.of("flight_booking_email_" + b.getId() + ".txt");
+        String body = "Hi " + b.getCustomerFirstName() + " " + b.getCustomerLastName() + ",\n\n" +
+                " \n\n" +
+                " " + b.getFlightNumber() + " " + b.getFlight().getEstDepartureTime().atZoneSameInstant(ZoneOffset.UTC).format(ISO_Z) +
+                " " + b.getFlight().getEstArrivalTime().atZoneSameInstant(ZoneOffset.UTC).format(ISO_Z) + ".\n\n" +
+                " " + b.getBookingDate().atZoneSameInstant(ZoneOffset.UTC).format(ISO_Z) + ".\n\n" +
+                " ";
+        Path out = Path.of(" " + b.getId() + ".txt");
         try {
             Files.writeString(out, body);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
 
         }
     }

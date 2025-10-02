@@ -16,7 +16,6 @@ import java.util.UUID;
 
 @Component
 public class JwtService {
-    // 256-bit base64 secret (for demo)
     private static final String SECRET = "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY3ODkwYWJjZGU=";
 
     private Key getSigningKey() {

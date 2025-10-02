@@ -45,13 +45,11 @@ public class BookingService {
         AppUser user = userRepository.findById(userId).orElseThrow();
         Flight flight = flightRepository.findWithLockingById(req.flightId).orElseThrow();
 
-        // Optional: do not allow past or in-transit
         OffsetDateTime now = OffsetDateTime.now();
         if (!now.isBefore(flight.getEstDepartureTime())) {
             throw new IllegalArgumentException("Flight not available for booking");
         }
 
-        // Optional: overlaps
         if (!bookingRepository.findOverlapping(user, flight.getEstDepartureTime(), flight.getEstArrivalTime()).isEmpty()) {
             throw new IllegalArgumentException("Overlapping booking");
         }
