@@ -1,4 +1,4 @@
 Integrantes:
 
-Leonardo Martinez Aquino
+Leonardo Martinez Aquino, 
 Marcelo Rosillo
