@@ -27,7 +27,6 @@ public class UserService {
 
     public static boolean isValidName(String name) {
         if (name == null || name.isBlank()) return false;
-        // at least 1 uppercase A-Z
         return Pattern.compile("[A-Z]").matcher(name).find();
     }
 
